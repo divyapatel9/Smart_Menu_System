@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Menu - Find a Restaurant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to our Restaurants!</h1>
+        <p>Find a restaurant by searching for a specific dish, cuisine, or keyword.</p>
+    </header>
+
+    <main>
+        <div class="search-container">
+            <input type="text" id="restaurant-search-input" placeholder="e.g., 'biryani', 'thai food', 'vegetarian'">
+            <button id="restaurant-mic-button" title="Search with your voice">🎤</button>
+            <button id="search-btn">Search</button>
+        </div>
+
+        <div id="restaurants-container">
+            <p>Loading restaurants...</p>
+        </div>
+
+        <p id="no-results-message" class="no-results" style="display: none;">No restaurants match your search.</p>
+
+    </main>
+    
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

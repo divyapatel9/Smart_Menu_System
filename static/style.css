@@ -1,0 +1,537 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #5a3e8d;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+main {
+    padding: 1rem;
+}
+
+#restaurants-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.restaurant-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 1.5rem;
+    width: 300px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.restaurant-card h2 {
+    margin-top: 0;
+    color: #5a3e8d;
+}
+
+/* Styles for the Restaurant Menu Page */
+#restaurant-header {
+    position: relative;
+    text-align: center;
+}
+
+.back-button {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+#menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.menu-item-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    width: 80%;
+    max-width: 600px;
+}
+
+.menu-item-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.item-description {
+    color: #666;
+}
+
+.item-category {
+    font-style: italic;
+    color: #888;
+}
+
+.item-price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #5a3e8d;
+    text-align: right;
+}
+
+/* Styles for Voice Recognition UI */
+.voice-controls {
+    text-align: center;
+    padding: 1rem;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+#mic-button {
+    font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: none;
+    background-color: #5a3e8d;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#mic-button:hover {
+    background-color: #4a2f7c;
+}
+
+#mic-button.is-listening {
+    background-color: #d9534f; /* Red when listening */
+    transform: scale(1.1);
+}
+
+#voice-status {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #555;
+    min-height: 1.2em; /* Prevents layout shift */
+}
+
+#reset-filter-button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 1rem;
+}
+
+#reset-filter-button:hover {
+    background-color: #eee;
+}
+
+/* Cart Panel Styles */
+.cart-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-panel h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #5a3e8d;
+}
+
+#cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+}
+
+#cart-items .cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+#place-order-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+#place-order-button:hover {
+    background-color: #218838;
+}
+
+/* Add to Order Button */
+.add-to-order-btn {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #5a3e8d;
+    color: #5a3e8d;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+.add-to-order-btn:hover {
+    background-color: #5a3e8d;
+    color: white;
+}
+
+/* --- Enhanced Voice Control & Reset Button --- */
+.voice-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#reset-filter-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    color: #495057;
+    cursor: pointer;
+    border-radius: 20px; /* Pill shape */
+    transition: all 0.2s ease-in-out;
+}
+
+#reset-filter-button:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+
+/* --- Enhanced Cart Panel --- */
+.cart-panel {
+    position: fixed;
+    right: -350px; /* Start hidden off-screen */
+    top: 0;
+    width: 320px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth slide */
+    z-index: 1000;
+}
+
+/* Add this class with JavaScript to show the cart */
+.cart-panel.is-open {
+    right: 0;
+}
+
+.cart-panel h2 {
+    border-bottom: 2px solid #5a3e8d;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#cart-items .cart-item span:first-child {
+    font-weight: 500;
+}
+
+#cart-total-section {
+    margin-top: auto; /* Pushes this section to the bottom */
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+#cart-total-section p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    /* Prevent horizontal scrollbar caused by cart */
+    overflow-x: hidden; 
+}
+
+/* Ensure the main content area doesn't get covered by the cart */
+body.cart-open main, body.cart-open .voice-controls {
+    margin-right: 320px;
+}
+
+header, .voice-controls, main {
+    transition: margin-right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+header {
+    background-color: #5a3e8d;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.voice-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#mic-button {
+    font-size: 2rem; width: 4rem; height: 4rem;
+    border-radius: 50%; border: none;
+    background-color: #5a3e8d; color: white;
+    cursor: pointer; transition: background-color 0.3s, transform 0.2s;
+}
+#mic-button:hover { background-color: #4a2f7c; }
+#mic-button.is-listening { background-color: #d9534f; transform: scale(1.1); }
+
+#reset-filter-button {
+    padding: 0.6rem 1.2rem; font-size: 0.9rem; font-weight: 600;
+    border: 1px solid #ced4da; background-color: #fff; color: #495057;
+    cursor: pointer; border-radius: 20px; transition: all 0.2s ease-in-out;
+}
+#reset-filter-button:hover { background-color: #e9ecef; border-color: #adb5bd; }
+
+#voice-status { margin-top: 0.5rem; font-style: italic; color: #555; min-height: 1.2em; }
+
+main { padding: 1rem; }
+.menu-item-card {
+    background-color: white; border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1.5rem; width: 80%; max-width: 600px;
+    margin: 1rem auto;
+}
+.menu-item-card h3 { margin-top: 0; color: #333; }
+.item-description { color: #666; }
+.item-category { font-style: italic; color: #888; }
+.item-price { font-weight: bold; font-size: 1.2rem; color: #5a3e8d; text-align: right; }
+.add-to-order-btn {
+    display: block; margin-top: 1rem; padding: 0.5rem 1rem;
+    border: 1px solid #5a3e8d; color: #5a3e8d;
+    background-color: transparent; border-radius: 5px;
+    cursor: pointer; transition: background-color 0.2s, color 0.2s;
+    float: right;
+}
+.add-to-order-btn:hover { background-color: #5a3e8d; color: white; }
+.no-results { text-align: center; color: #777; font-size: 1.2rem; padding: 2rem; }
+
+/* --- Final Cart Panel Styles --- */
+.cart-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 320px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+.cart-panel h2 {
+    border-bottom: 2px solid #5a3e8d;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+#cart-items { flex-grow: 1; overflow-y: auto; }
+#cart-items .cart-item { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+#cart-items .cart-item span:first-child { font-weight: 500; }
+#cart-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+#cart-footer p { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; }
+#place-order-button {
+    width: 100%; padding: 1rem;
+    background-color: #28a745; color: white;
+    border: none; border-radius: 5px;
+    font-size: 1.2rem; cursor: pointer;
+}
+#place-order-button:hover { background-color: #218838; }
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000;
+}
+.modal-content {
+    background: white; padding: 2rem; border-radius: 8px;
+    text-align: center; width: 90%; max-width: 400px;
+}
+.modal-content input {
+    width: 100%; padding: 0.8rem; margin-bottom: 1rem;
+    box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;
+}
+.modal-content button {
+    width: 100%; padding: 0.8rem; background-color: #5a3e8d;
+    color: white; border: none; border-radius: 4px; cursor: pointer;
+}
+
+/* Homepage Search Container Styles */
+.search-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    gap: 0.5rem;
+}
+
+#restaurant-search-input {
+    width: 50%;
+    max-width: 500px;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+#restaurant-mic-button {
+    font-size: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Style for the new 'Search' button on the homepage */
+#search-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    background-color: #5a3e8d;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+#search-btn:hover {
+    background-color: #4a2f7c;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000;
+}
+.modal-content {
+    background: white; padding: 2rem; border-radius: 8px;
+    text-align: center; width: 90%; max-width: 400px;
+}
+.modal-content input {
+    width: 100%; padding: 0.8rem; margin-bottom: 1rem;
+    box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;
+}
+.modal-content button {
+    width: 100%; padding: 0.8rem; background-color: #5a3e8d;
+    color: white; border: none; border-radius: 4px; cursor: pointer;
+}
+
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6); display: flex;
+    justify-content: center; align-items: center; z-index: 2000;
+}
+.modal-content {
+    background: white; padding: 2rem; border-radius: 8px;
+    text-align: center; width: 90%; max-width: 400px;
+}
+.modal-content input {
+    width: 100%; padding: 0.8rem; margin-bottom: 1rem;
+    box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;
+}
+.modal-content button {
+    width: 100%; padding: 0.8rem; background-color: #5a3e8d;
+    color: white; border: none; border-radius: 4px; cursor: pointer;
+}
+/* Homepage Search Container Styles */
+.search-container {
+    display: flex; justify-content: center; padding: 2rem;
+    background-color: #f8f9fa; border-bottom: 1px solid #dee2e6; gap: 0.5rem;
+}
+#restaurant-search-input {
+    width: 50%; max-width: 500px; padding: 0.8rem 1rem;
+    font-size: 1.1rem; border-radius: 20px; border: 1px solid #ccc;
+}
+#restaurant-mic-button {
+    font-size: 1.5rem; width: 3rem; height: 3rem;
+    border-radius: 50%; border: 1px solid #ccc; background-color: #fff; cursor: pointer;
+}
+#search-btn {
+    padding: 0.8rem 1.5rem; font-size: 1.1rem; font-weight: 600;
+    border: none; background-color: #5a3e8d; color: white;
+    border-radius: 20px; cursor: pointer; margin-left: 0.5rem;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header id="restaurant-header">
+        <a href="/" class="back-button">&larr; All Restaurants</a>
+        <h1 id="restaurant-name">Loading...</h1>
+    </header>
+
+    <div class="voice-controls">
+        <button id="mic-button" title="Ask a question">🎤</button>
+        <button id="reset-filter-button" title="Show all items">Show All</button>
+        <p id="voice-status">Click the mic and ask: "Show me something spicy" or "What's a sweet dessert?"</p>
+    </div>
+
+    <main>
+        <div id="menu-container">
+            </div>
+    </main>
+
+    <div class="cart-panel">
+        <h2>Your Order</h2>
+        <div id="cart-items">
+            <p>Your cart is empty.</p>
+        </div>
+        <div id="cart-footer">
+            <p>Total: $<span id="cart-total">0.00</span></p>
+            <button id="place-order-button">Place Order</button>
+        </div>
+    </div>
+    
+    <div id="user-details-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2>Please Enter Your Details</h2>
+            <p>We need your name and table number before you can add items to your order.</p>
+            <input type="text" id="customer-name-input" placeholder="Your Name" required>
+            <input type="number" id="table-number-input" placeholder="Table Number" required>
+            <button id="confirm-details-button">Start My Order</button>
+        </div>
+    </div>
+    
+    <script>
+        const RESTAURANT_ID = {{ restaurant_id }};
+    </script>
+    <script src="{{ url_for('static', filename='menu.js') }}"></script>
+</body>
+</html>
