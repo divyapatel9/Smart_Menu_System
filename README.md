@@ -1,33 +1,61 @@
-Smart Menu System
-An intelligent, interactive restaurant menu designed to create a personalized dining experience. This application leverages AI-powered semantic search, voice commands, and a rule-based dynamic pricing engine to enhance customer interaction and restaurant profitability.
+# 🍽️ Smart Menu System
 
-This project is a full-stack web application built with Python and Flask on the backend and vanilla JavaScript on the frontend. It moves beyond traditional static menus by providing an intelligent platform that understands natural language queries and adapts to real-time business conditions.
+An intelligent, interactive restaurant menu designed to create a personalized dining experience. This full-stack AI-powered application enhances customer satisfaction and restaurant profitability by integrating **semantic search**, **voice commands**, and a **rule-based dynamic pricing engine**.
 
-Key Features
-Semantic Search Engine: Instead of simple keyword matching, the system uses Sentence-Transformers and FAISS to understand the meaning behind a user's query. A search for "hearty meal" can match dishes tagged as "comfort food" or "large portion."
-Voice Control: Users can interact with the menu using natural language voice commands on both the homepage (for finding restaurants) and the menu page (for filtering dishes).
-Rule-Based Dynamic Pricing: Menu prices are not static. The Python backend adjusts item prices in real-time based on a set of rules, including:
-Time of Day: Premiums for peak lunch and dinner rushes.
-Day of Week: Higher prices for busy weekends.
-Item Popularity: Surcharges for best-selling items based on order history.
-Inventory: Simulated discounts for items with surplus ingredients.
-Detailed Data & Analytics: The system uses two separate SQLite databases to keep transactional and analytical data clean:
-orders.db: Stores detailed order information, including customer details and a full breakdown of which pricing factors were applied to each item.
-analytics.db: Logs all user search queries (both text and voice) to provide insights into customer demand and intent.
-Pre-Order Validation: Implements a professional workflow where users are prompted to enter their name and table number via a modal before they can add items to their order.
-Multi-Cuisine Data Model: The menu structure supports multi-cuisine restaurants, allowing for both broad filtering (e.g., "Show me Asian Fusion restaurants") and specific queries ("Find the Thai dishes at this restaurant").
-Technology Stack
-Backend:
-Python 3
-Flask
-Sentence-Transformers (for generating text embeddings)
-Faiss (for efficient similarity search)
-spaCy & NLTK (for NLP tasks like synonym expansion)
-NumPy
-SQLite (for database storage)
-Frontend:
-HTML5
-CSS3
-Vanilla JavaScript (for all client-side logic)
-APIs:
-Web Speech API (for voice recognition in the browser)
+Built using **Python + Flask** on the backend and **Vanilla JavaScript** on the frontend, the system goes far beyond static menus by understanding natural language queries and adapting prices based on real-time business conditions.
+
+---
+
+## 🔑 Key Features
+
+### 🔍 Semantic Search Engine
+- Understands the **intent** behind user queries using Sentence Transformers and FAISS.
+- Example: Searching for _"hearty meal"_ may return dishes tagged as _"comfort food"_ or _"large portion"_.
+
+### 🗣️ Voice Control
+- Voice-enabled interaction via the Web Speech API.
+- Available on both:
+  - **Homepage**: Find restaurants by voice.
+  - **Menu page**: Filter dishes via spoken queries.
+
+### 💰 Rule-Based Dynamic Pricing
+Menu item prices dynamically adjust in real-time based on:
+- ⏰ **Time of Day** – Lunch/dinner surcharges during peak hours.
+- 📆 **Day of Week** – Higher weekend prices.
+- 🔥 **Item Popularity** – Premiums on best-selling items.
+- 🧊 **Inventory Simulation** – Discounts for overstocked ingredients.
+
+### 📊 Data & Analytics (SQLite Dual-DB Setup)
+- `orders.db`: Tracks orders with pricing breakdowns, customer info, and timestamps.
+- `analytics.db`: Logs all search queries (voice/text) for user behavior analysis.
+
+### ✅ Pre-Order Validation
+- Modal input ensures user provides:
+  - Name
+  - Table number  
+Before items can be added to the cart.
+
+### 🍱 Multi-Cuisine Menu Structure
+- Broad filters: e.g., _“Show me Asian Fusion restaurants”_
+- Specific filters: e.g., _“Find Thai dishes at this restaurant”_
+
+---
+
+## 🧠 Tech Stack
+
+### Backend:
+- **Python 3**, **Flask**
+- **Sentence-Transformers** – text embeddings
+- **FAISS** – fast vector similarity search
+- **spaCy**, **NLTK** – NLP processing
+- **NumPy**
+- **SQLite** – lightweight DB storage
+
+### Frontend:
+- **HTML5**
+- **CSS3**
+- **Vanilla JavaScript**
+
+### APIs:
+- **Web Speech API** – in-browser voice recognition
+
